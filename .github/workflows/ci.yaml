@@ -68,6 +68,7 @@ jobs:
             cd db/db-chat/
             rm -R postgres-chat/
             git clone $GITPATH
+            docker-compose up
 
             # Stop running container
 #            docker stop $CONTAINER_NAME
