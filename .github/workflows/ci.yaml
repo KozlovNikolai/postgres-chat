@@ -58,6 +58,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSHKEY }}
 #          envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,CONTAINER_NAME
+          envs: GITPATH
           script: |
             # Setup variables
             # TAG_NAME=$(echo $GITHUB_SHA | head -c7)
