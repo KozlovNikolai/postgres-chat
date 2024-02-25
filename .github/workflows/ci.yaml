@@ -67,7 +67,6 @@ jobs:
             # docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} $REGISTRY
             cd db/db-chat/
             git clone $GITPATH
-            echo G O T O V O !!!
 
             # Stop running container
 #            docker stop $CONTAINER_NAME
