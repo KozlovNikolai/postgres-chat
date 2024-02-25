@@ -65,10 +65,13 @@ jobs:
 
             # Login to Docker Registry
             # docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} $REGISTRY
-            cd db/db-chat/
+            cd db/db-chat/postgres-chat/
+            docker-compose down
+            cd ..
             rm -R postgres-chat/
             git clone $GITPATH
-            docker-compose up
+            cd postgres-chat/
+            docker-compose up -d
 
             # Stop running container
 #            docker stop $CONTAINER_NAME
