@@ -66,6 +66,7 @@ jobs:
             # Login to Docker Registry
             # docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} $REGISTRY
             cd db/db-chat/
+            rm -R postgres-chat/
             git clone $GITPATH
 
             # Stop running container
