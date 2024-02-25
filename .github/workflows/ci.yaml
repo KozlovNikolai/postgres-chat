@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 env:
-  GITPATH: "github.com/KozlovNikolai/postgre-chat"
+  GITPATH: "https://github.com/KozlovNikolai/postgres-chat.git"
  # REGISTRY: "cr.selcloud.ru/msc"
  # IMAGE_NAME: "db-chat"
  # CONTAINER_NAME: "db-chat-container"
