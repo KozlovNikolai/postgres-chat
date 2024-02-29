@@ -8,46 +8,10 @@ on:
 
 env:
   GITPATH: "https://github.com/KozlovNikolai/postgres-chat.git"
- # REGISTRY: "cr.selcloud.ru/msc"
- # IMAGE_NAME: "db-chat"
- # CONTAINER_NAME: "db-chat-container"
 
 jobs:
-#  image-build-and-push:
-#    runs-on: ubuntu-22.04
-#
-#    steps:
-#      - name: Checkout master
-#        uses: actions/checkout@v3
-#
-#      - name: Set up Docker Buildx
-#        uses: docker/setup-buildx-action@v2
-#
-#      - name: Login to Docker Registry
-#        run: docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} $REGISTRY
-#
-#      - name: Build and Push Docker Image
-#        run: |
-#          TAG_NAME=$(echo $GITHUB_SHA | head -c7)
-#          docker buildx create --use
-#          docker buildx build --no-cache --push --tag $REGISTRY/$IMAGE_NAME:$TAG_NAME -f ./dockerfile .
-
-#  prepare-environment:
-#    needs: test
-#    runs-on: self-hosted
-#    steps:
-#      - name: checkout repo
-#       uses: actions/checkout@v3
-#      - name: Stop and remove containers, networks
-#        run: docker-compose down
-#      - name: Stop and remove containers, networks
-#        run: docker rm -vf $(docker ps -aq)
-#      - name: Remove unused data
-#        run: docker system prune -a -f
-
   deploy-image:
     runs-on: ubuntu-22.04
-   # needs: image-build-and-push
 
     steps:
       - name: Deploy to Selectel cloud via SSH action
@@ -74,10 +38,3 @@ jobs:
             docker-compose up -d
 
             # Stop running container
-#            docker stop $CONTAINER_NAME
-
-            # Remove old container
-#            docker rm $CONTAINER_NAME
-
-            # Run a new container from a new image
-#            docker run -d -p 50051:50051 --name $CONTAINER_NAME $REGISTRY/$IMAGE_NAME:$TAG_NAME
